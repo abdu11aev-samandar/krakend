@@ -1,0 +1,24 @@
+{
+	"port": 8080,
+	"environment": "DEVELOPMENT",
+	"timeout": "3s",
+	"cache_ttl": "3s",
+	"output_encoding": "json",
+	"extra_config": {},
+	"crm": {
+		"name":"crm",
+		"default_host": "http://crm-web"
+	},
+	"help_desk": {
+		"name":"help-desk",
+		"default_host": "http://help-desk-web"
+	},
+	"call_center": {
+		"name":"call-center",
+		"default_host": "http://call-center-web"
+	},
+	"chat_api": {
+		"name":"chat-api",
+		"default_host": "http://chat-web"
+	}
+}

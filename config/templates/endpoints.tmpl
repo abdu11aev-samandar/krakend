@@ -1,0 +1,6 @@
+{{define "Endpoint"}}
+  {{ template "CrmApiEndpoint" (list .service.crm.default_host .service.crm.name) }},
+  {{ template "CrmApiEndpoint" (list .service.help_desk.default_host .service.help_desk.name) }},
+  {{ template "CrmApiEndpoint" (list .service.call_center.default_host .service.call_center.name) }},
+  {{ template "CrmApiEndpoint" (list .service.chat_api.default_host .service.chat_api.name) }}
+{{end}}

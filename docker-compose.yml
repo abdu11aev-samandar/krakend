@@ -1,0 +1,18 @@
+version: "3"
+services:
+  krakend:
+    container_name: krakend
+    image: devopsfaith/krakend
+    volumes:
+      - .:/etc/krakend
+    ports:
+      - "8080:8080"
+    network_mode: crm_network
+    environment:
+      - FC_ENABLE=1
+      - FC_SETTINGS=config/settings
+      - FC_PARTIALS=config/partials
+      - FC_TEMPLATES=config/templates
+      - FC_OUT=out.json
+      - SERVICE_NAME=KrakenD API Gateway
+    command: [ "run", "-dc", "krakend.tmpl", "" ]
