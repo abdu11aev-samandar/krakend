@@ -1,13 +1,14 @@
 
-{{define "GatewayApiEndpoint"}}
+{{define "ChatApiEndpoint"}}
 
 {{$default_host :=index . 0}}
+{{$service:= index . 1}}
 
 {{ $levels := list "{level1}" "{level2}" "{level3}" "{level4}"}}
 
 {{range $i, $level := $levels}}
 {
- "endpoint": "/api/v1{{range $j := until (int (add $i 1))}}/{{index $levels (int $j)}}{{end}}",
+ "endpoint": "/{{$service}}/api/v1{{range $j := until (int (add $i 1))}}/{{index $levels (int $j)}}{{end}}",
  "extra_config": {
     {{ include "rate_limit_backend.tmpl"}}
  },

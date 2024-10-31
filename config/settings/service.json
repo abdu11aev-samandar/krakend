@@ -20,5 +20,9 @@
 	"chat_api": {
 		"name":"chat-api",
 		"default_host": "http://chat-web"
+	},
+	"gateway": {
+		"name":"gateway",
+		"default_host": "http://gateway-web"
 	}
 }

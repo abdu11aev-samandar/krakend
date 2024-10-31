@@ -455,6 +455,118 @@
           "disable_host_sanitize": true
         }
       ]
+    },
+    {
+      "endpoint": "/api/v1/{level1}",
+      "extra_config": {
+        "qos/ratelimit/proxy": {
+          "every": "10m",
+          "client_max_rate": 100
+        }
+      },
+      "output_encoding": "no-op",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/api/v1/{level1}",
+          "encoding": "no-op",
+          "sd": "static",
+          "extra_config": {},
+          "host": [
+            "http://gateway-web"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/{level1}/{level2}",
+      "extra_config": {
+        "qos/ratelimit/proxy": {
+          "every": "10m",
+          "client_max_rate": 100
+        }
+      },
+      "output_encoding": "no-op",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/api/v1/{level1}/{level2}",
+          "encoding": "no-op",
+          "sd": "static",
+          "extra_config": {},
+          "host": [
+            "http://gateway-web"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/{level1}/{level2}/{level3}",
+      "extra_config": {
+        "qos/ratelimit/proxy": {
+          "every": "10m",
+          "client_max_rate": 100
+        }
+      },
+      "output_encoding": "no-op",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
+          "encoding": "no-op",
+          "sd": "static",
+          "extra_config": {},
+          "host": [
+            "http://gateway-web"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/{level1}/{level2}/{level3}/{level4}",
+      "extra_config": {
+        "qos/ratelimit/proxy": {
+          "every": "10m",
+          "client_max_rate": 100
+        }
+      },
+      "output_encoding": "no-op",
+      "input_headers": [
+        "*"
+      ],
+      "input_query_strings": [
+        "*"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
+          "encoding": "no-op",
+          "sd": "static",
+          "extra_config": {},
+          "host": [
+            "http://gateway-web"
+          ],
+          "disable_host_sanitize": true
+        }
+      ]
     }
   ]
 }
