@@ -1,7 +1,7 @@
 {{define "Endpoint"}}
-  {{ template "CrmApiEndpoint" (list .service.crm.default_host .service.crm.name) }},
-  {{ template "DeskApiEndpoint" (list .service.help_desk.default_host .service.help_desk.name) }},
-  {{ template "CallApiEndpoint" (list .service.call_center.default_host .service.call_center.name) }},
-  {{ template "ChatApiEndpoint" (list .service.chat_api.default_host .service.chat_api.name) }},
+  {{ template "ApiEndpoint" (list .service.crm.default_host .service.crm.name) }},
+  {{ template "ApiEndpoint" (list .service.help_desk.default_host .service.help_desk.name) }},
+  {{ template "ApiEndpoint" (list .service.call_center.default_host .service.call_center.name) }},
+  {{ template "ApiEndpoint" (list .service.chat_api.default_host .service.chat_api.name) }},
   {{ template "GatewayApiEndpoint" (list .service.gateway.default_host) }}
 {{end}}

@@ -4,569 +4,620 @@
   "name": "KrakenD API Gateway (DEVELOPMENT)",
   "port": 8080,
   "timeout": "3s",
-  "cache_ttl": "3s",
+  "cache_ttl":  "3s",
   "output_encoding": "json",
   "extra_config": {},
   "endpoints": [
-    {
-      "endpoint": "/crm/api/v1/{level1}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+    
+  
+
+
+
+
+
+
+
+{
+ "endpoint": "/crm/api/v1/{level1}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://crm-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/crm/api/v1/{level1}/{level2}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://crm-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/crm/api/v1/{level1}/{level2}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://crm-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/crm/api/v1/{level1}/{level2}/{level3}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://crm-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/crm/api/v1/{level1}/{level2}/{level3}/{level4}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://crm-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/crm/api/v1/{level1}/{level2}/{level3}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://crm-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+}
+
+
+,
+  
+
+
+
+
+
+
+
+{
+ "endpoint": "/help-desk/api/v1/{level1}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://help-desk-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/help-desk/api/v1/{level1}/{level2}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://crm-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/crm/api/v1/{level1}/{level2}/{level3}/{level4}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://help-desk-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/help-desk/api/v1/{level1}/{level2}/{level3}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://help-desk-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/help-desk/api/v1/{level1}/{level2}/{level3}/{level4}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://crm-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/help-desk/api/v1/{level1}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://help-desk-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+}
+
+
+,
+  
+
+
+
+
+
+
+
+{
+ "endpoint": "/call-center/api/v1/{level1}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://call-center-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/call-center/api/v1/{level1}/{level2}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://help-desk-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/help-desk/api/v1/{level1}/{level2}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://call-center-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/call-center/api/v1/{level1}/{level2}/{level3}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://call-center-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/call-center/api/v1/{level1}/{level2}/{level3}/{level4}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://help-desk-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/help-desk/api/v1/{level1}/{level2}/{level3}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://call-center-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+}
+
+
+,
+  
+
+
+
+
+
+
+
+{
+ "endpoint": "/chat-api/api/v1/{level1}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://chat-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/chat-api/api/v1/{level1}/{level2}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://help-desk-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/help-desk/api/v1/{level1}/{level2}/{level3}/{level4}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://chat-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/chat-api/api/v1/{level1}/{level2}/{level3}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://chat-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/chat-api/api/v1/{level1}/{level2}/{level3}/{level4}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://help-desk-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/call-center/api/v1/{level1}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://chat-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+}
+
+
+,
+  
+
+
+
+
+
+
+{
+ "endpoint": "/api/v1/{level1}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://gateway-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/api/v1/{level1}/{level2}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://call-center-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/call-center/api/v1/{level1}/{level2}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://gateway-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/api/v1/{level1}/{level2}/{level3}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "input_query_strings": [
-        "*"
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://gateway-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+},
+
+{
+ "endpoint": "/api/v1/{level1}/{level2}/{level3}/{level4}",
+ "extra_config": {
+    "qos/ratelimit/proxy": {
+            "every": "10m",
+            "client_max_rate": 100
+}
+
+ },
+ "output_encoding": "no-op",
+ "input_headers": [
+          "*"
       ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://call-center-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/call-center/api/v1/{level1}/{level2}/{level3}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://call-center-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/call-center/api/v1/{level1}/{level2}/{level3}/{level4}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://call-center-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/chat-api/api/v1/{level1}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://chat-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/chat-api/api/v1/{level1}/{level2}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://chat-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/chat-api/api/v1/{level1}/{level2}/{level3}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://chat-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/chat-api/api/v1/{level1}/{level2}/{level3}/{level4}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://chat-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/api/v1/{level1}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://gateway-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/api/v1/{level1}/{level2}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://gateway-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/api/v1/{level1}/{level2}/{level3}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://gateway-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    },
-    {
-      "endpoint": "/api/v1/{level1}/{level2}/{level3}/{level4}",
-      "extra_config": {
-        "qos/ratelimit/proxy": {
-          "every": "10m",
-          "client_max_rate": 100
-        }
-      },
-      "output_encoding": "no-op",
-      "input_headers": [
-        "*"
-      ],
-      "input_query_strings": [
-        "*"
-      ],
-      "backend": [
-        {
-          "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
-          "encoding": "no-op",
-          "sd": "static",
-          "extra_config": {},
-          "host": [
-            "http://gateway-web"
-          ],
-          "disable_host_sanitize": true
-        }
-      ]
-    }
-  ]
+  "input_query_strings":[
+      "*"
+    ],
+ "backend": [
+     {
+         "url_pattern": "/api/v1/{level1}/{level2}/{level3}/{level4}",
+         "encoding": "no-op",
+         "sd": "static",
+         "extra_config": {},
+         "host": ["http://gateway-web"],
+         "disable_host_sanitize": true
+     }
+ ]
+}
+
+
+
+
+ ]
 }
