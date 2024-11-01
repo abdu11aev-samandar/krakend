@@ -5,7 +5,7 @@
 {{$service:= index . 1}}
 
 {{ $levels := list "{level1}" "{level2}" "{level3}" "{level4}"}}
-{{ $methods := list "GET" "POST" "PUT" "DELETE" }}{{/* Define the HTTP methods you want to support */}}
+{{ $methods := list "GET" "POST" "PUT" "DELETE" "PATCH"}}{{/* Define the HTTP methods you want to support */}}
 
 {{- $totalLevels := len $levels }}
 {{- $totalMethods := len $methods }}
