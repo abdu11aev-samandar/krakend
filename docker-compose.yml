@@ -8,6 +8,16 @@ services:
     ports:
       - "8080:8080"
     network_mode: crm_network
+    # before install loki logging docker plugin
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://loki:3100/loki/api/v1/push"
+        loki-retries: "5"
+        loki-batch-size: "400"
+        max-size: "10m"
+        loki-timeout: "1s"
+        labels: "job=krakend,service=api-gateway"
     environment:
       - FC_ENABLE=1
       - FC_SETTINGS=config/settings

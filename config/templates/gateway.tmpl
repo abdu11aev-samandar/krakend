@@ -52,5 +52,21 @@
       "disable_host_sanitize": true
     }
   ]
+},
+{
+  "endpoint": "/api/documentation",
+  "method": "GET",{{/* Repeat for each method as needed */}}
+  "extra_config": {},
+  "output_encoding":"no-op",
+  "backend": [
+    {
+      "url_pattern": "/api/documentation",
+      "encoding": "no-op",
+      "sd": "static",
+      "extra_config": {},
+      "host": ["{{ $default_host }}"],
+      "disable_host_sanitize": true
+    }
+  ]
 }
 {{end}}
