@@ -5,10 +5,7 @@ services:
     image: devopsfaith/krakend
     volumes:
       - .:/etc/krakend
-    ports:
-      - "8080:8080"
     network_mode: crm_network
-    # before install loki logging docker plugin
     logging:
       driver: loki
       options:
@@ -26,3 +23,13 @@ services:
       - FC_OUT=out.json
       - SERVICE_NAME=KrakenD API Gateway
     command: [ "run", "-dc", "krakend.tmpl", "" ]
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./swagger:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8200:80"  # Host Port : Container Port
+    network_mode: crm_network

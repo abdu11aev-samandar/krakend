@@ -35,6 +35,24 @@
     {{- if or (lt $i (sub $totalLevels 1)) (lt $j (sub $totalMethods 1)) }},
     {{- end }}
   {{- end }}
-{{- end }}
+{{- end }},
+
+{
+  "endpoint": "/{{$service}}/docs/api-docs.json",
+  "method": "GET",{{/* Repeat for each method as needed */}}
+  "extra_config": {},
+  "output_encoding":"no-op",
+  "backend": [
+    {
+      "url_pattern": "/docs/api-docs.json",
+      "encoding": "no-op",
+      "sd": "static",
+      "extra_config": {},
+      "host": ["{{ $default_host }}"],
+      "disable_host_sanitize": true
+    }
+  ]
+}
+
 {{end}}
 
