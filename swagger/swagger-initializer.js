@@ -6,7 +6,7 @@ window.onload = function() {
       {url: "/gateway/docs/api-docs.json", name: "Gateway API"},
       {url: "/chat-api/docs/api-docs.json", name: "Chat API"},
     ],
-    "urls.primaryName": "API Two",
+    "urls.primaryName": "Gateway API",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

@@ -5,6 +5,8 @@ services:
     image: devopsfaith/krakend
     volumes:
       - .:/etc/krakend
+    ports:
+      - "8080:8080"
     network_mode: crm_network
     logging:
       driver: loki
@@ -33,3 +35,7 @@ services:
     ports:
       - "8200:80"  # Host Port : Container Port
     network_mode: crm_network
+
+networks:
+  crm_network:
+    driver: bridge
