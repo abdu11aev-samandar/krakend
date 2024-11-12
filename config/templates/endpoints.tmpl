@@ -3,5 +3,5 @@
   {{ template "ApiEndpoint" (list .service.help_desk.default_host .service.help_desk.name) }},
   {{ template "ApiEndpoint" (list .service.call_center.default_host .service.call_center.name) }},
   {{ template "ApiEndpoint" (list .service.chat_api.default_host .service.chat_api.name) }},
-  {{ template "GatewayApiEndpoint" (list .service.gateway.default_host ) }}
+  {{ template "ApiEndpoint" (list .service.gateway.default_host .service.gateway.name) }}
 {{end}}
