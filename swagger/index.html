@@ -6,6 +6,28 @@
     <meta name="description" content="SwaggerUI" />
     <title>SwaggerUI</title>
     <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
+    <style>
+        /* Custom CSS to hide the Swagger UI search bar */
+        .swagger-ui .topbar .download-url-wrapper,
+        .swagger-ui .topbar .swagger-ui .topbar .topbar-wrapper .download-url-wrapper,
+        .swagger-ui .topbar .topbar-wrapper .download-url-wrapper {
+            display: none;
+        }
+
+        /* Alternatively, target the search input directly if the class is known */
+        /* Replace `.search-bar` with the actual class name if different */
+        /*
+        .swagger-ui .topbar .search-bar {
+            display: none;
+        }
+        */
+
+        /* Additional optional styling adjustments */
+        /* Adjust the margin or padding if needed after hiding the search bar */
+        .swagger-ui .topbar {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body>
 <div id="swagger-ui"></div>

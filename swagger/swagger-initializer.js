@@ -71,6 +71,15 @@ async function combineSpecs(services) {
   return combinedSpec;
 }
 
+/**
+ * Capitalizes the first letter of a string.
+ * @param {string} str - The string to capitalize.
+ * @returns {string} - The capitalized string.
+ */
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, ' ');
+}
+
 window.onload = async function() {
   const services = [
     { name: 'gateway', url: '/gateway/docs/api-docs.json' },
@@ -86,6 +95,7 @@ window.onload = async function() {
     spec: combinedSpec,
     dom_id: '#swagger-ui',
     deepLinking: true,
+    docExpansion: 'none', // Keep endpoints collapsed
     presets: [
       SwaggerUIBundle.presets.apis,
       SwaggerUIStandalonePreset
@@ -102,6 +112,24 @@ window.onload = async function() {
         req.headers['Authorization'] = `Bearer ${token}`;
       }
       return req;
-    }
+    },
+    // Optional: Control the expansion of tags and models
+    tagsSorter: 'alpha',
+    operationsSorter: 'alpha',
+    defaultModelsExpandDepth: 0, // Prevent models from being expanded
+    defaultModelExpandDepth: 0,  // Prevent models from being expanded
   });
+
+  // Wait for Swagger UI to fully initialize before attempting to remove elements
+  window.ui.initOAuth({
+    /* OAuth config if needed */
+  });
+
+  // Use a timeout to ensure the topbar is rendered before attempting to hide it
+  setTimeout(() => {
+    const searchBar = document.querySelector('.swagger-ui .topbar .download-url-wrapper');
+    if (searchBar) {
+      searchBar.style.display = 'none';
+    }
+  }, 1000); // Adjust the timeout duration as needed
 };
