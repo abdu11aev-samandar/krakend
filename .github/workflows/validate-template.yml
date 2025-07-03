@@ -1,0 +1,19 @@
+name: Validate Template
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run template validation
+        run: |
+          docker run --rm \
+            -v "$PWD":/workspace \
+            -w /workspace \
+            devopsfaith/krakend \
+            bash tests/validate_template.sh
+
