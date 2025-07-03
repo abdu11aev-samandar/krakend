@@ -16,10 +16,10 @@ This repo contains a basic implementation for flexible configuration, including 
 - `krakend.tmpl`: the base file, including calls to the variables, iteration over available endpoints and some code snippets.
 - `Dockerfile`: A docker definition to build an immutable container with KrakenD
 - `docker-compose.yml` an example docker compose definition file to be able to execute KrakenD enabling Flexible Configuration.
+- `nginx.conf`: a sample Nginx reverse proxy configuration used when running the stack locally
 - `config/partials/*`: some code snippets referenced from base file
 - `config/templates/*`: a template referenced from base file
-- `config/settings/{dev|prod}/endpoint.json`: a collection of endpoints
-- `config/settings/{dev|prod}/service.json`: basic configuration parameters for the service
+- `config/settings/service.json`: basic configuration parameters for the service
 
 ## Running this test
 
@@ -30,7 +30,7 @@ $ docker run \
 --rm -it -p "8080:8080" \
 -v "$PWD:/etc/krakend" \
 -e FC_ENABLE=1 \
--e FC_SETTINGS=config/settings/prod \
+-e FC_SETTINGS=config/settings \
 -e FC_PARTIALS=config/partials \
 -e FC_TEMPLATES=config/templates \
 -e FC_OUT=out.json \
@@ -50,7 +50,7 @@ $ docker-compose up
 
 ```shell
 $ FC_ENABLE=1 \
-FC_SETTINGS=config/settings/prod \
+FC_SETTINGS=config/settings \
 FC_PARTIALS=config/partials \
 FC_TEMPLATES=config/templates \
 FC_OUT=out.json \
@@ -65,7 +65,7 @@ Note: both above alternatives will output a `out.json` file with the compiled ve
 If you use containers, the recommended approach is to write your own Dockerfile and deploy an immutable artifact (embedding the config).
 
 ```shell
-$ docker build --build-arg ENV=prod -t mykrakend . 
+$ docker build -t mykrakend .
 ```
 
 This will generate a ready-to-use container named `mykrakend` with the configuration already compiled, checked and validated using the linter (based on the  [Dockerfile](Dockerfile) included in this repo).
